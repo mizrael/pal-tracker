@@ -27,6 +27,8 @@ namespace PalTracker
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddSingleton<ITimeEntryRepository, InMemoryTimeEntryRepository>();
+
             services.AddSingleton(sp => new WelcomeMessage(
                 Configuration.GetValue<string>("WELCOME_MESSAGE", "WELCOME_MESSAGE not configured.")
             ));
