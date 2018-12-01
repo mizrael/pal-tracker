@@ -3,7 +3,8 @@ applications:
 - name: pal-tracker
   path: src/PalTracker/bin/Release/netcoreapp2.1/publish/
   stack: cflinuxfs2
-  buildpack: dotnet_core_buildpack
+  buildpacks: 
+  - buildpack: dotnet_core_buildpack
   routes:
   - route: https://pal-tracker-reliable-bat-review.apps.pikes.pal.pivotal.io/
   memory: 512M
