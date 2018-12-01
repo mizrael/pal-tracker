@@ -9,4 +9,4 @@ applications:
   memory: 512M
   instances: 2
   env:
-    WELCOME_MESSAGE: Hello from Cloud Foundry (prod)
+    WELCOME_MESSAGE: Hello from the production environment
