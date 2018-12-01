@@ -7,6 +7,6 @@ applications:
   routes:
   - route: https://dg-pal-tracker-reliable-bat.apps.pikes.pal.pivotal.io/
   memory: 512M
-  instances: 2
+  instances: 1
   env:
     WELCOME_MESSAGE: Hello from the production environment
