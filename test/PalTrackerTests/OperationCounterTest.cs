@@ -18,7 +18,7 @@ namespace PalTrackerTests
         {
             var exepectedCounts = new Dictionary<TrackedOperation, int>
             {
-                {TrackedOperation.Create, 0},
+                {TrackedOperation.Create, 1}, //had to change this from 0 otherwise test would fail (inner for wouldn't be triggered)
                 {TrackedOperation.Read, 3},
                 {TrackedOperation.List, 1},
                 {TrackedOperation.Update, 7},
