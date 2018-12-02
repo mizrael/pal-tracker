@@ -44,6 +44,8 @@ namespace PalTracker
             services.AddSingleton<IHealthContributor, TimeEntryHealthContributor>();
             services.AddSingleton<IOperationCounter<TimeEntry>, OperationCounter<TimeEntry>>();
             services.AddSingleton<IInfoContributor, TimeEntryInfoContributor>();
+
+            services.AddSingleton<ITimeEntryRepositoryFactory, TimeEntryRepositoryFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

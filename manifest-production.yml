@@ -10,3 +10,4 @@ applications:
   instances: 1
   env:
     WELCOME_MESSAGE: Hello from the production environment
+    MANAGEMENT__ENDPOINTS__CLOUDFOUNDRY__ENABLED: false

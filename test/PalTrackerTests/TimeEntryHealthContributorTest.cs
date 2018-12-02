@@ -16,7 +16,12 @@ namespace PalTrackerTests
         public TimeEntryHealthContributorTest()
         {
             _repository = new Mock<ITimeEntryRepository>();
-            _contributor = new TimeEntryHealthContributor(_repository.Object);
+          
+            var factory = new Mock<ITimeEntryRepositoryFactory>();
+            factory.Setup(f => f.Create())
+                .Returns(_repository.Object);
+
+            _contributor = new TimeEntryHealthContributor(factory.Object);
         }
 
         [Fact]

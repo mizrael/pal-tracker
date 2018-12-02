@@ -6,17 +6,19 @@ namespace PalTracker
 {
     public class TimeEntryHealthContributor : IHealthContributor
     {
-        private readonly ITimeEntryRepository _timeEntryRepository;
+        private readonly ITimeEntryRepositoryFactory _repositoryFactory;
         public const int MaxTimeEntries = 5;
         
-        public TimeEntryHealthContributor(ITimeEntryRepository timeEntryRepository)
+        public TimeEntryHealthContributor(ITimeEntryRepositoryFactory timeEntryRepository)
         {
-            _timeEntryRepository = timeEntryRepository ?? throw new ArgumentNullException(nameof(timeEntryRepository));
+            _repositoryFactory = timeEntryRepository ?? throw new ArgumentNullException(nameof(timeEntryRepository));
         }
 
         public HealthCheckResult Health()
         {
-            var count = _timeEntryRepository.List().Count();
+            var repo = _repositoryFactory.Create();
+
+            var count = repo.List().Count();
             var status = count < MaxTimeEntries ? HealthStatus.UP : HealthStatus.DOWN;
 
             var health = new HealthCheckResult {Status = status};
